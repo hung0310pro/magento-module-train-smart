@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <virtualType name="MymoduleProductSearch" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Mymodule\Product\Ui\Component\Listing\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MymoduleProductGridCollectionReporting" type="Magento\Framework\View\Element\UiComponent\DataProvider\Reporting">
+        <arguments>
+            <argument name="filterPool" xsi:type="object">MymoduleProductSearch</argument>
+        </arguments>
+    </virtualType>
+    <type name="Mymodule\Product\Ui\Component\Product\DataProvider">
+        <arguments>
+            <argument name="reporting" xsi:type="object">MymoduleProductGridCollectionReporting</argument>
+        </arguments>
+    </type>
+
+</config>
