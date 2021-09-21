@@ -13,6 +13,8 @@ class PreventAddToCart
      */
     protected $_session;
 
+    const CUSTOMER_ATTRIBUTE_VIP = 'customer_vip';
+
     /**
      * PreventAddToCart constructor.
      *
@@ -64,6 +66,6 @@ class PreventAddToCart
      */
     public function customerAttributeVip()
     {
-        return $this->_session->getCustomerData()->getCustomAttribute('customer_vip');
+        return $this->_session->getCustomerData()->getCustomAttribute(self::CUSTOMER_ATTRIBUTE_VIP);
     }
 }
