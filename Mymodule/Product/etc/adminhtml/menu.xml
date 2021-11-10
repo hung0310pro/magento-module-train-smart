@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mymodule_Product::mymenu" title="MyMenu" module="Mymodule_Product" sortOrder="10"
+             resource="Mymodule_Product::mymenu"/>
+        <add id="Mymodule_Product::product_custom_listing" title="List Product Custom" module="Mymodule_Product" sortOrder="10"
+             action="product/productcustom/index"
+             resource="Mymodule_Product::mymenu" parent="Mymodule_Product::mymenu"/>
+    </menu>
+</config>

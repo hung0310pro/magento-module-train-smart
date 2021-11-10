@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Mymodule\Product\Api\ProductRepositoryInterface" type="Mymodule\Product\Model\ProductRepository"/>
+    <preference for="Mymodule\Product\Api\Data\TestRepositoryDataInterface" type="Mymodule\Product\Model\TestRepositoryData"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="product_custom_listing_data_source" xsi:type="string">Mymodule\Product\Model\ResourceModel\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <!--  Temporary file stored in pub/media/product/custom/image  -->
+            <argument name="baseTmpPath" xsi:type="string">product/custom/image</argument>
+            <argument name="basePath" xsi:type="string">product/custom</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
